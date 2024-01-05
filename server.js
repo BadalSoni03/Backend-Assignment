@@ -10,7 +10,7 @@ const {rateLimit} = require('express-rate-limit');
 const rateLimiting = rateLimit({
 	windowMs : 60 * 1000, // 1 minute
 	max : 10,
-	message : 'You have crossed the 10 request limit in one minute',
+	message : 'You have crossed the 10 requests limit in one minute',
 	standardHeaders : true,
 	legacyHeaders : false
 });
@@ -19,7 +19,7 @@ const rateLimiting = rateLimit({
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(cokkieParser());
-// app.use(rateLimiting);
+app.use(rateLimiting);
 
 
 // home route
